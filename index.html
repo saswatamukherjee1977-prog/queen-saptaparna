@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Queen Saptaparna 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      color: white;
+      text-shadow: 0 0 15px #ff6699;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 20px;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6699; }
+      to { text-shadow: 0 0 30px #ff3366; }
+    }
+    .message {
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 51, 102, 0.4);
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+      animation: fadeIn 2s ease-in-out;
+      display: none;
+      margin-top: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    button {
+      background: #ff3366;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #ff0033;
+      transform: scale(1.05);
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 For My Queen Saptaparna 💖</h1>
+
+  <button onclick="showMessage()">Tap for a Surprise 💝</button>
+
+  <div class="message" id="loveMessage">
+    <p>My Queen Saptaparna,</p>
+    <p>
+      I don’t even know how to explain this, but you’re always in my mind—like a soft song playing in the background no matter what I do. Even when I’m far, I feel you close, and that’s what keeps me going.
+    </p>
+    <p>
+      I keep falling for the little things about you—the way you talk, the way you smile, even the way you get annoyed sometimes. And honestly, it drives me crazy in the best way possible. You’ve become my safe place, my favorite reason to smile, and the most beautiful part of my world.
+    </p>
+    <p>
+      If I could, I’d hold you right now and remind you how loved you are. But since I can’t, just know this—no matter what happens, you’ll always be my Queen, my forever, my everything. ❤️. I love you the mostesttt my Queen.
+    </p>
+  </div>
+
+<!-- Background Music (plays when she taps the button) -->
+<audio id="bgMusic" loop playsinline>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+   function showMessage() {
+  document.getElementById("loveMessage").style.display = "block";
+  const a = document.getElementById("bgMusic");
+  if (a) {
+    a.play().catch(() => {
+      // autoplay blocked — she'll hear music if she interacts (tap) again
+    });
+  }
+}
+
+  </script>
+</body>
+</html>
